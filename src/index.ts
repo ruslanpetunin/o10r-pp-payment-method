@@ -1,4 +1,4 @@
-import type { PaymentMethod, PaymentMethodFactory } from 'orchestrator-pp-flow';
+import type { PaymentMethod, PaymentMethodFactory } from 'orchestrator-pp-core';
 import makeBasePaymentMethod from './base';
 
 const paymentMethodFactory: PaymentMethodFactory = async (initData, projectSettings) => {

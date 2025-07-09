@@ -27,6 +27,6 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "orchestrator-pp-flow": "^1.0.0"
+    "orchestrator-pp-core": "^1.0.0"
   }
 }

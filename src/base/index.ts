@@ -1,5 +1,4 @@
-import type { PaymentMethodData } from 'orchestrator-pp-core';
-import type { PaymentMethod } from 'orchestrator-pp-flow'
+import type { PaymentMethodData, PaymentMethod } from 'orchestrator-pp-core';
 
 export default function(config: PaymentMethodData): PaymentMethod {
   return {
