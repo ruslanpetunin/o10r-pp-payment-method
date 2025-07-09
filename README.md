@@ -1,6 +1,6 @@
 # orchestrator-pp-payment-method
 
-`orchestrator-pp-payment-method` is a TypeScript library that provides a factory function for generating an array of `PaymentMethod` objects.
+`orchestrator-pp-payment-method` is a TypeScript library that provides a factory function for generating an array of `PaymentMethod` objects. It contains logic of payment methods.
 
 These methods are created based on project settings and initialization data, both of which conform to interfaces from [`orchestrator-pp-core`](https://github.com/ruslanpetunin/orchestrator-pp-core).
 
