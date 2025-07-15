@@ -1,4 +1,4 @@
-import type { PaymentMethod, PaymentMethodFactory } from 'orchestrator-pp-core';
+import type { PaymentMethod, PaymentMethodFactory } from './types';
 import makeBasePaymentMethod from './base';
 
 const paymentMethodFactory: PaymentMethodFactory = async (initData, projectSettings) => {
@@ -10,5 +10,7 @@ const paymentMethodFactory: PaymentMethodFactory = async (initData, projectSetti
 
   return methods;
 };
+
+export * from './types';
 
 export default paymentMethodFactory;
