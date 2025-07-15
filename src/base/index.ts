@@ -1,4 +1,5 @@
-import type { PaymentMethodData, PaymentMethod } from 'orchestrator-pp-core';
+import type { PaymentMethodData } from 'orchestrator-pp-core';
+import type { PaymentMethod } from './../types';
 import usePaymentForm from './composables/usePaymentForm';
 
 export default function(config: PaymentMethodData): PaymentMethod {

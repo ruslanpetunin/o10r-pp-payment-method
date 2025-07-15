@@ -1,6 +1,9 @@
-import type { PaymentForm, PaymentMethodField } from 'orchestrator-pp-core'
+import type { PaymentMethodField } from 'orchestrator-pp-core';
+import type { PaymentForm } from './../../types';
 
 async function validateFields(fields: PaymentMethodField[], data: Record<string, unknown>): Promise<boolean> {
+  console.log(fields, data);
+
   return true;
 }
 
