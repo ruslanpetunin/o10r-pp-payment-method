@@ -1,16 +1,17 @@
-import type { ValidateField, ValidatorMap } from './../../types';
+import type { ValidateField, ValidatorMap, Validator } from './../../types';
 import type { PaymentMethodField, PaymentMethodFieldValidationRules } from 'orchestrator-pp-core';
 
 export default function(field: PaymentMethodField, validatorMap: ValidatorMap): ValidateField {
   const validate: ValidateField = async (value, formData) => {
     const failedRules: Partial<PaymentMethodFieldValidationRules> = {};
-    const allRules = field.validation || {};
+    const fieldRules= field.validation || {};
 
-    for (const rule in allRules) {
-      const options = allRules[rule] as unknown[];
+    for (const rule of Object.keys(fieldRules) as (keyof PaymentMethodFieldValidationRules)[]) {
+      const validator = validatorMap[rule];
+      const options = fieldRules[rule];
 
-      if (validatorMap[rule]) {
-        const isValid = await validatorMap[rule](value, formData, ...options);
+      if (validator && options) {
+        const isValid = await (validator as Validator<typeof rule>)(value, formData, ...options);
 
         if (!isValid) {
           failedRules[rule] = options;

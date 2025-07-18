@@ -21,9 +21,9 @@ export interface PaymentForm {
   onSubmit: (data: Record<string, unknown>) => Promise<void> | void,
 }
 
-export type ValidatorMap = {
+export type ValidatorMap = Partial<{
   [K in keyof PaymentMethodFieldValidationRules]: Validator<K>
-};
+}>;
 
 export type Validator<K extends keyof PaymentMethodFieldValidationRules> = (
   value: unknown,
