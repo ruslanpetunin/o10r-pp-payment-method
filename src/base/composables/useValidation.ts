@@ -14,7 +14,8 @@ export default function(field: PaymentMethodField, validatorMap: ValidatorMap): 
         const isValid = await (validator as Validator<typeof rule>)(value, formData, ...options);
 
         if (!isValid) {
-          failedRules[rule] = options;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (failedRules as any)[rule] = options;
         }
       }
     }

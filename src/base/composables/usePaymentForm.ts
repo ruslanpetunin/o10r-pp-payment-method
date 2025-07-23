@@ -7,11 +7,24 @@ import type {
   FormValidationResult
 } from './../../types';
 import required from './../validators/required';
+import pan from './../validators/pan';
+import expiryMonth from './../validators/expiryMonth';
+import expiryYear from './../validators/expiryYear';
+import cvv from './../validators/cvv';
+import cardholder from './../validators/cardholder';
 import useValidation from './useValidation';
+
+const validatorMap: ValidatorMap = {
+  required,
+  pan,
+  cvv,
+  cardholder,
+  expiry_month: expiryMonth,
+  expiry_year: expiryYear
+};
 
 function makeFieldValidators(fields: PaymentMethodField[]) {
   const result: Record<string, ValidateField> = {};
-  const validatorMap: ValidatorMap = { required };
 
   for (const field of fields) {
     result[field.name] = useValidation(field, validatorMap);
