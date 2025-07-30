@@ -1,16 +1,15 @@
-import type { PaymentMethod, PaymentMethodFactory } from './types';
+import type { PaymentMethodFactory } from './types'
 import makeBasePaymentMethod from './base';
+import { makeSavedCardPaymentMethod } from './card';
+import type { Api } from 'orchestrator-pp-core'
 
-const paymentMethodFactory: PaymentMethodFactory = async (initData, projectSettings) => {
-  const methods: PaymentMethod[] = [];
-
-  for (const methodConfig of projectSettings.methods) {
-    methods.push(makeBasePaymentMethod(methodConfig));
+const usePaymentMethodFactory = (api: Api, token: string): PaymentMethodFactory => {
+  return {
+    fromConfig: async (config) => makeBasePaymentMethod(config),
+    fromSavedCard: async (card) => makeSavedCardPaymentMethod(api, card, token),
   }
-
-  return methods;
-};
+}
 
 export * from './types';
 
-export default paymentMethodFactory;
+export default usePaymentMethodFactory;

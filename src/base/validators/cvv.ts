@@ -11,9 +11,11 @@ const validator: Validator<'cvv'> = (value, formData, cardNumberKey) => {
       if (cardType?.code === CardTypeCode.AMEX) {
         return Boolean(value.match(/^\d{4}$/));
       }
+
+      return Boolean(value.match(/^\d{3}$/));
     }
 
-    return Boolean(value.match(/^\d{3}$/));
+    return Boolean(value.match(/^\d{3,4}$/));
   }
 
   return false;

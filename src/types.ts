@@ -1,18 +1,32 @@
 import type {
-  InitData,
+  PaymentMethodData,
   PaymentMethodField,
   PaymentMethodFieldValidationRules,
-  ProjectSettingsData
+  SavedCard
 } from 'orchestrator-pp-core'
 
-export type PaymentMethodFactory = (initData: InitData, projectSettings: ProjectSettingsData) => Promise<PaymentMethod[]>;
+export interface PaymentMethodFactory {
+  fromConfig: (config: PaymentMethodData) => Promise<PaymentMethod>;
+  fromSavedCard: (card: SavedCard) => Promise<SavedCardPaymentMethod>;
+}
+
+export interface SavedCardPaymentMethod extends PaymentMethod {
+  data: SavedCard,
+  onRemove: () => Promise<void>,
+}
+
+export function isSavedCardPaymentMethod(
+  paymentMethod: PaymentMethod
+): paymentMethod is SavedCardPaymentMethod {
+  return (paymentMethod as SavedCardPaymentMethod).data !== undefined;
+}
 
 export interface PaymentMethod {
+  id: string,
   code: string,
   icon: string,
   paymentForm: PaymentForm,
   getCollectedData: () => Record<string, unknown>,
-  onRemove?: () => Promise<void>,
 }
 
 export interface PaymentForm {
