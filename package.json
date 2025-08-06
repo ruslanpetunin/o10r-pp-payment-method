@@ -28,6 +28,6 @@
   },
   "dependencies": {
     "orchestrator-pp-core": "^4.0.0",
-    "orchestrator-pp-form": "^1.0.1"
+    "orchestrator-pp-form": "^2.0.0"
   }
 }

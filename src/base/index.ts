@@ -5,13 +5,13 @@ import useGenerator from './composables/useGenerator';
 
 export default function(config: PaymentMethodData): PaymentMethod {
   const { generateId } = useGenerator();
-  const { paymentForm, getCollectedData } = useForm(config.fields);
+  const paymentForm = useForm(config.fields);
 
   return {
     id: generateId(),
     code: config.code,
     icon: config.icon,
     paymentForm: paymentForm,
-    getCollectedData: getCollectedData
+    getCollectedData: paymentForm.getCollectedData
   }
 }

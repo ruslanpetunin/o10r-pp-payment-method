@@ -8,7 +8,7 @@ const mastercardIcon = `data:image/svg+xml,%3csvg%20width='30'%20height='20'%20v
 
 export function makeSavedCardPaymentMethod(api: Api, card: SavedCard, token: string): SavedCardPaymentMethod {
   const { generateId } = useGenerator();
-  const { getCollectedData, paymentForm } = useForm([
+  const paymentForm = useForm([
     {
       name: "expiry_month",
       type: "tel",
@@ -38,7 +38,7 @@ export function makeSavedCardPaymentMethod(api: Api, card: SavedCard, token: str
     data: card,
     paymentForm: paymentForm,
     getCollectedData: () => {
-      const paymentFormData = getCollectedData();
+      const paymentFormData = paymentForm.getCollectedData();
 
       return {
         id: card.id,
