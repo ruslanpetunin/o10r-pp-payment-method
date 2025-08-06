@@ -1,11 +1,11 @@
 import type { PaymentMethodData } from 'orchestrator-pp-core';
+import { useForm } from 'orchestrator-pp-form';
 import type { PaymentMethod } from './../types';
-import usePaymentForm from './composables/usePaymentForm';
 import useGenerator from './composables/useGenerator';
 
 export default function(config: PaymentMethodData): PaymentMethod {
   const { generateId } = useGenerator();
-  const { paymentForm, getCollectedData } = usePaymentForm(config.fields);
+  const { paymentForm, getCollectedData } = useForm(config.fields);
 
   return {
     id: generateId(),
