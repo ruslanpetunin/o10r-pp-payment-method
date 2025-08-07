@@ -1,5 +1,5 @@
-import type { PaymentMethodData } from 'orchestrator-pp-core';
-import { useForm } from 'orchestrator-pp-form';
+import type { PaymentMethodData } from 'o10r-pp-core';
+import { useForm } from 'o10r-pp-form';
 import type { PaymentMethod } from './../types';
 import useGenerator from './composables/useGenerator';
 

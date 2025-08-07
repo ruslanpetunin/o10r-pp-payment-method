@@ -1,5 +1,5 @@
-import type { PaymentMethodData, SavedCard } from 'orchestrator-pp-core';
-import type { Form } from 'orchestrator-pp-form';
+import type { PaymentMethodData, SavedCard } from 'o10r-pp-core';
+import type { Form } from 'o10r-pp-form';
 
 export interface PaymentMethodFactory {
   fromConfig: (config: PaymentMethodData) => Promise<PaymentMethod>;

@@ -3,9 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "orchestrator-pp-form": ["./../orchestrator-pp-form/src", "orchestrator-pp-form"],
+      "o10r-pp-form": ["./../o10r-pp-form/src", "o10r-pp-form"],
       "orchestrator-pp-flow": ["./../orchestrator-pp-flow/src", "orchestrator-pp-flow"],
-      "orchestrator-pp-core": ["./../orchestrator-pp-core/src", "orchestrator-pp-core"]
+      "o10r-pp-core": ["./../o10r-pp-core/src", "o10r-pp-core"]
     }
   },
 }

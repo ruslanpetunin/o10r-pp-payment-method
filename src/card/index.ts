@@ -1,5 +1,5 @@
-import type { Api, SavedCard } from 'orchestrator-pp-core'
-import { useForm } from 'orchestrator-pp-form';
+import type { Api, SavedCard } from 'o10r-pp-core'
+import { useForm } from 'o10r-pp-form';
 import type { SavedCardPaymentMethod } from './../types';
 import useGenerator from './../base/composables/useGenerator';
 
