@@ -8,9 +8,9 @@ export type * from 'o10r-pp-form';
 
 export * from './types';
 
-export default function (api: Api, token: string): PaymentMethodFactory {
+export default function (api: Api, sid: string): PaymentMethodFactory {
   return {
     fromConfig: async (config) => makeBasePaymentMethod(config),
-    fromSavedCard: async (card) => makeSavedCardPaymentMethod(api, card, token),
+    fromSavedCard: async (card) => makeSavedCardPaymentMethod(api, card, sid),
   }
 };
