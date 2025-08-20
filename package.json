@@ -27,7 +27,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "o10r-pp-core": "^0.4.0",
+    "o10r-pp-core": "^0.4.3",
     "o10r-pp-form": "^0.1.0"
   }
 }
