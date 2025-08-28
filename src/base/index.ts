@@ -11,7 +11,7 @@ export default function(config: PaymentMethodData): PaymentMethod {
     id: generateId(),
     code: config.code,
     // icon: config.icon,
-    icon: 'https://js.stripe.com/v3/fingerprinted/img/card-ce24697297bd3c6a00fdd2fb6f760f0d.svg',
+    icon: '/images/pm/card.svg', // TODO it must come from backend, it is just example
     paymentForm: paymentForm,
     getCollectedData: paymentForm.getCollectedData
   }
