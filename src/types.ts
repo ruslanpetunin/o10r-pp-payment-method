@@ -1,8 +1,9 @@
 import type { PaymentMethodData, SavedCard } from 'o10r-pp-core';
 import type { Form } from 'o10r-pp-form';
+import { PaymentMode } from "o10r-pp-core";
 
 export interface PaymentMethodFactory {
-  fromConfig: (config: PaymentMethodData) => Promise<PaymentMethod>;
+  fromConfig: (config: PaymentMethodData, paymentMode: PaymentMode, options?: Record<string, unknown>) => Promise<PaymentMethod>;
   fromSavedCard: (card: SavedCard) => Promise<SavedCardPaymentMethod>;
 }
 
